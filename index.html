@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>YoungFedex</title>
+
+  <!-- ICONOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial;
+      color: white;
+      text-align: center;
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      font-size: 50px;
+      text-shadow: 0 0 15px rgba(255, 100, 0, 0.8);
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px;
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      border: 1px solid white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      transition: 0.3s;
+    }
+
+    .links a:hover {
+      transform: scale(1.05);
+      background: white;
+      color: black;
+    }
+
+    /* BOTÓN AUDIO */
+    .audio-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- VIDEO FONDO -->
+<video id="bgVideo" autoplay muted loop>
+  <source src="fondo.mp4" type="video/mp4">
+</video>
+
+<!-- AUDIO -->
+<audio id="bgAudio" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+<!-- CONTENIDO -->
+<div class="content">
+  <h1>YoungFedex</h1>
+
+  <div class="links">
+    <a href="https://www.twitch.tv/alexisfede12" target="_blank">
+      <i class="fab fa-twitch"></i> Twitch
+    </a>
+
+    <a href="https://steamcommunity.com/profiles/76561199089041461" target="_blank">
+      <i class="fab fa-steam"></i> Steam
+    </a>
+
+    <a href="https://open.spotify.com/user/21jfmseqj3ji7u2tnlrvhqd4q" target="_blank">
+      <i class="fab fa-spotify"></i> Spotify
+    </a>
+
+    <a href="https://www.faceit.com/es/players/YoungFedex/cs2" target="_blank">
+      <i class="fas fa-gamepad"></i> Faceit
+    </a>
+  </div>
+</div>
+
+<!-- BOTÓN PARA ACTIVAR AUDIO -->
+<button class="audio-btn" onclick="startAudio()">🔊 Activar sonido</button>
+
+<script>
+function startAudio() {
+  const audio = document.getElementById("bgAudio");
+  const video = document.getElementById("bgVideo");
+
+  audio.play();
+  audio.currentTime = video.currentTime;
+
+  document.querySelector(".audio-btn").style.display = "none";
+}
+</script>
+
+</body>
+</html>
